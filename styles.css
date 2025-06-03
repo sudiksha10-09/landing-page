@@ -1,0 +1,124 @@
+body {
+    background-color: rgb(240, 240, 240);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+}
+.typewriter {
+  text-align: center;
+  font-size: 20px;
+}
+
+.typewriter span {
+  display: inline-block;
+  font-weight: bold;
+  background: linear-gradient(90deg, #0613c7, #ff00cc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-right: 2px solid #000000;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+
+.navbar {
+    background-color: #000;
+    padding: 10px;
+}
+
+.navlist {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navlist li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navlist li a:hover {
+    color: #392eff;
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 10px;
+    border: 2px solid #000000;
+}
+
+.form {
+    max-width: 500px;
+    background-color: white;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgb(0, 0, 0);
+    text-align: center;
+}
+
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="tel"],
+.form textarea {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #000000;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border 0.3s ease;
+}
+
+.form input[type="text"]:focus,
+.form input[type="email"]:focus,
+.form input[type="tel"]:focus,
+.form textarea:focus {
+    border-color: #392eff;
+    outline: none;
+}
+
+.form input[type="submit"] {
+    background-color: #392eff;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.form input[type="submit"]:hover {
+    background-color: #281bd3;
+}
+
+.footer {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 15px 10px;
+}
+
+.social-icons a {
+    color: white;
+    margin: 0 10px;
+    font-size: 22px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #392eff;
+}
