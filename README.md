@@ -1,2 +1,1 @@
-# landing-page
-It is a nice and working landing page
+A working landing page for a Sports company which has navigation links, form, image, animations, etc...
