@@ -55,3 +55,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
   typeLine1();
 });
+
+const track = document.querySelector('.carousel-track');
+const images = document.querySelectorAll('.carousel-track img');
+const dots = document.querySelectorAll('.dot');
+
+let currentIndex = 0;
+
+function updateCarousel(index) {
+  track.style.transform = `translateX(-${index * 100}%)`;
+  dots.forEach(dot => dot.classList.remove('active'));
+  dots[index].classList.add('active');
+}
+
+dots.forEach(dot => {
+  dot.addEventListener('click', () => {
+    currentIndex = parseInt(dot.getAttribute('data-index'));
+    updateCarousel(currentIndex);
+  });
+});
+
+// Initialize
+updateCarousel(currentIndex);
