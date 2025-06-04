@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Sportsynthesis Auth</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+    <div class="auth-container">
+        <h2>Welcome to Sportsynthesis</h2>
+        <div class="auth-forms">
+            <!-- Email/Password form -->
+            <form id="emailAuthForm">
+                <input type="email" name="email" placeholder="Email" required /><br><br>
+                <input type="password" name="password" placeholder="Password" required /><br><br>
+                <input type="submit" value="Sign Up / Sign In" />
+            </form>
+
+            <div class="divider">OR</div>
+
+            <!-- Google Sign In button container -->
+            <div id="g_id_onload"
+                data-client_id="214605160519-bi6coj0u73q4b0tq37b9nsh2l8kh8ph5.apps.googleusercontent.com"
+                data-login_uri="https://yourdomain.com/auth.html"
+                data-auto_prompt="false">
+            </div>
+            <div class="g_id_signin" data-type="standard"></div>
+        </div>
+    </div>
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('emailAuthForm');
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const email = form.email.value;
+          const password = form.password.value;
+
+          // Simple demo alert. Replace with real auth logic!
+          alert(`Email: ${email}\nPassword: ${password}\n\nThis is where you’d handle signup/signin.`);
+        });
+
+        google.accounts.id.initialize({
+          client_id: "214605160519-bi6coj0u73q4b0tq37b9nsh2l8kh8ph5.apps.googleusercontent.com",
+          callback: handleCredentialResponse
+        });
+
+        google.accounts.id.renderButton(
+          document.querySelector(".g_id_signin"),
+          { theme: "outline", size: "large" }
+        );
+
+        function handleCredentialResponse(response) {
+          alert("Google sign-in successful! Token:\n" + response.credential);
+          // You’d verify and handle the JWT on your backend here.
+        }
+      });
+    </script>
+
+    <style>
+      body {
+        background-color: #f0f0f0;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .auth-container {
+        max-width: 400px;
+        margin: 80px auto;
+        background: white;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgb(0 0 0 / 0.1);
+        text-align: center;
+      }
+      .auth-forms input[type="email"],
+      .auth-forms input[type="password"] {
+        width: 90%;
+        padding: 10px;
+        margin-bottom: 15px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #000;
+      }
+      .auth-forms input[type="submit"] {
+        background-color: #392eff;
+        color: white;
+        border: none;
+        padding: 10px 25px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+      .auth-forms input[type="submit"]:hover {
+        background-color: #281bd3;
+      }
+      .divider {
+        margin: 20px 0;
+        font-weight: bold;
+        color: #666;
+      }
+    </style>
+</body>
+</html>
