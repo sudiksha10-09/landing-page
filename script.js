@@ -77,3 +77,25 @@ dots.forEach(dot => {
 
 // Initialize
 updateCarousel(currentIndex);
+window.onload = function() {
+  google.accounts.id.initialize({
+    client_id: "214605160519-bi6coj0u73q4b0tq37b9nsh2l8kh8ph5.apps.googleusercontent.com",
+    callback: handleCredentialResponse
+  });
+
+  google.accounts.id.renderButton(
+    document.querySelector(".g_id_signin"),
+    { theme: "outline", size: "large" } // customization
+  );
+
+  google.accounts.id.prompt(); // optional auto prompt
+};
+
+function handleCredentialResponse(response) {
+  // This is the JWT token from Google sign-in
+  console.log("Encoded JWT ID token: " + response.credential);
+
+  // You can decode and use this token or send it to your backend for verification.
+  // For now, let's just show a simple alert for demo
+  alert("You have successfully signed in!");
+}
